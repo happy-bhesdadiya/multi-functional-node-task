@@ -1,0 +1,85 @@
+<%- include('../includes/header') %>
+<%- include('../includes/sidebar') %>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+          <div class="col-12">
+            <h2 class="content-header-title float-left mb-0">Employee</h2>
+            <div class="breadcrumb-wrapper">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Employee</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if (typeof success_message !== 'undefined') { %>
+      <div class="demo-spacing-0 col-6" style="margin-left: 220px;">
+        <div class="alert alert-success" role="alert">
+          <div class="alert-body"><strong> <%= success_message %> </strong></div>
+        </div>
+      </div>
+    <% } %>
+
+    <div class="content-body">
+      <div class="row">
+        <div class="col-12">
+        </div>
+      </div>
+      <!-- <div class="col-lg-3 col-md-12 mb-1 mb-lg-0" style="margin-left: 740px;">
+        <a href="/admin/add-admin"><button type="button" class="btn btn-primary btn-block">Add Admin</button></a>
+      </div><br> -->
+      <!-- Basic table -->
+      <section id="basic-datatable">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <table id="table_id" class="table">
+                <thead align="center">
+                  <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody align="center">
+                  <% for (let i = 0; i < employees.length; i++) { %>
+                  <tr>
+                    <th><%= i + 1 %></th>
+                    <th><%= employees[i].fullname %></th>
+                    <th><%= employees[i].email %></th>
+                    <th><%= employees[i].status %></th>
+                    <th>
+                      <a href="/edit-admin/<%= employees[i].id %>" class="btn btn-warning btn-sm" data-toggle="tooltip" data-original-title="Edit"><i class="ficon" data-feather="edit"></i></a>
+                      <a href="/delete-admin/<%= employees[i].id %>" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure to delete this record ?');" class="btn btn-danger btn-sm"><i class="ficon" data-feather="trash-2"></i></a>
+                    </th>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!--/ Basic table -->
+
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
+
+
+<%- include('../includes/footer') %>

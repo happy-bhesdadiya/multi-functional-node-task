@@ -1,0 +1,153 @@
+<%- include('../includes/header') %>
+<%- include('../includes/sidebar') %>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+          <div class="col-12">
+            <h2 class="content-header-title float-left mb-0">Products</h2>
+            <div class="breadcrumb-wrapper">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin-dashboard">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Products</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row match-height">
+      <!-- Statistics Card -->
+      <div class="col-xl-6 col-md-6 col-12">
+        <div class="card card-statistics">
+          <div class="card-header">
+            <h4 class="card-title">Search Products</h4>
+          </div>
+          <form action="/view-product" method="post">
+            <div class="card-body statistics-body">
+              <div class="row">
+                <div class="col-8">
+                  <div class="form-group">
+                    <label for="email-id-icon" style="font-size: 15px;">Search</label>
+                    <div class="input-group input-group-merge">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i data-feather="arrow-right-circle"></i></span>
+                      </div>
+                      <input id="search_product" name="search_product" class="form-control" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="demo-inline-spacing">
+                  <button type="submit" class="btn btn-gradient-dark" style="margin-left: 20px;">Search</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6 col-12">
+        <div class="card card-statistics">
+          <div class="card-header">
+            <h4 class="card-title">Sort Products</h4>
+          </div>
+          <form action="/view-product" method="get">
+            <div class="card-body statistics-body">
+              <div class="row">
+                <div class="col-8">
+                  <div class="form-group">
+                    <label for="email-id-icon" style="font-size: 15px;">Sorting</label>
+                    <div class="input-group input-group-merge">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i data-feather="arrow-right-circle"></i></span>
+                      </div>
+                      <input id="sort_product" name="sort_product" class="form-control" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="demo-inline-spacing">
+                  <button type="submit" class="btn btn-gradient-dark" style="margin-left: 20px;">Search</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--/ Statistics Card -->
+    </div>
+
+    <% if (typeof success_message !== 'undefined') { %>
+      <div class="demo-spacing-0 col-6" style="margin-left: 220px;">
+        <div class="alert alert-success" role="alert">
+          <div class="alert-body"><strong> <%= success_message %> </strong></div>
+        </div>
+      </div>
+    <% } %>
+
+    <div class="content-body">
+      <div class="row">
+        <div class="col-12">
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-12 mb-1 mb-lg-0" style="margin-left: 740px;">
+        <a href="/add-product"><button type="button" class="btn btn-primary btn-block">Add Product</button></a>
+      </div><br>
+      <!-- Basic table -->
+      <section id="basic-datatable">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <table id="table_id" class="table">
+                <thead align="center">
+                  <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Available</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody align="center">
+                  <% for (let i = 0; i < products.length; i++) { %>
+                  <tr>
+                    <th><%= i + 1 %></th>
+                    <th><%= products[i].product_name %></th>
+                    <th><%= products[i].product_price %></th>
+                    <th><%= products[i].product_stock %></th>
+                    <th><%= products[i].is_available %></th>
+                    <th>
+                      <% if (products[i].product_img) { %>
+    
+                      <img src="../uploads/<%= products[i].product_img %>" class="img-fluid rounded" height="45px" width="45px">
+                      <% } %>
+                    </th>
+                    <th>
+                      <a href="/edit-product/<%= products[i].id %>" class="btn btn-warning btn-sm" data-toggle="tooltip" data-original-title="Edit"><i class="ficon" data-feather="edit"></i></a>
+                      <a href="/delete-product/<%= products[i].id %>" data-toggle="tooltip" data-original-title="Delete" onclick="return confirm('Are you sure to delete this record ?');" class="btn btn-danger btn-sm"><i class="ficon" data-feather="trash-2"></i></a>
+                    </th>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+        <!--/ Basic table -->
+
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
+
+
+<%- include('../includes/footer') %>

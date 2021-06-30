@@ -1,0 +1,143 @@
+<%- include('../includes/header') %>
+<%- include('../includes/sidebar') %>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+          <div class="col-12">
+            <h2 class="content-header-title float-left mb-0">Manage Product</h2>
+            <div class="breadcrumb-wrapper">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin-dashboard">Home</a>
+                </li>
+                <li class="breadcrumb-item"><a href="/view-product">View Products</a>
+                </li>
+                <li class="breadcrumb-item active">Edit Product
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <!-- Displaying error message during fillup the form -->
+      <% if (typeof alert !== 'undefined') { %>
+      <% alert.forEach(function(error) {  %>
+      <div class="demo-spacing-0 col-6" style="margin-left: 220px;">
+        <div class="alert alert-warning" role="alert">
+          <div class="alert-body"><strong> <%= error.msg %> </strong></div>
+        </div>
+      </div>
+      <% }) %>
+      <% } %>
+      <!-- Displaying success message -->
+      <% if (typeof success_message !== 'undefined') { %>
+      <div class="demo-spacing-0 col-6" style="margin-left: 220px;">
+        <div class="alert alert-success" role="alert">
+          <div class="alert-body"><strong> <%= success_message %> </strong></div>
+        </div>
+      </div>
+      <% } %>
+      <!-- Displaying error message -->
+      <% if (typeof error_message !== 'undefined') { %>
+      <div class="demo-spacing-0 col-6" style="margin-left: 220px;">
+        <div class="alert alert-danger" role="alert">
+          <div class="alert-body"><strong> <%= error_message %> </strong></div>
+        </div>
+      </div>
+      <% } %>
+      <br>
+      <!-- Basic Vertical form layout section start -->
+      <section id="basic-vertical-layouts" style="margin-left: 220px;">
+        <div class="row">
+          <div class="col-8">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title" style="font-size: 30px;margin-left: 150px;">Edit Product</h4>
+              </div>
+              <div class="card-body">
+                <form class="form form-vertical" action="/edit-product/<%= product.id %>" method="POST" enctype="multipart/form-data" autocomplete="off">
+                  <input type="hidden" name="_id" value="<%= product._id %>">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="first-name-icon" style="font-size: 15px;">Product Name</label>
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i data-feather="arrow-right-circle"></i></span>
+                          </div>
+                          <input type="text" id="first-name-icon" class="form-control" name="product_name" value="<%= product.product_name %>" placeholder="Product Name"required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="email-id-icon" style="font-size: 15px;">Product Price</label>
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i data-feather="arrow-right-circle"></i></span>
+                          </div>
+                          <input type="text" id="email-id-icon" class="form-control" name="product_price" value="<%= product.product_price %>" placeholder="Product Price" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="email-id-icon" style="font-size: 15px;">Product Stock</label>
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i data-feather="arrow-right-circle"></i></span>
+                          </div>
+                          <input type="text" id="email-id-icon" class="form-control" name="product_stock" value="<%= product.product_stock %>" placeholder="Product Stock" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="email-id-icon" style="font-size: 15px;">Availability</label>
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i data-feather="user"></i></span>
+                          </div>
+                          <select name="is_available" value="<%= product.is_available %>" class="form-control" required>
+                            <option value="1">Available</option>
+                            <option value="0">Not-Available</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="password-icon" style="font-size: 15px;">Image</label>
+                        <div class="input-group input-group-merge">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i data-feather="image"></i></span>
+                          </div>
+                          <input type="file" id="password-icon" class="form-control" name="product_img" required />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary mr-1">Submit</button>
+                      <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Basic Vertical form layout section end -->
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
+
+<%- include('../includes/footer') %>

@@ -1,0 +1,44 @@
+[
+  {
+  "fullname": "Happy Patel",
+  "email": "happy@gmail.com",
+  "password": "12345",
+  "role": "admin",
+  "status": 1
+  },
+  {
+  "fullname": "John Cena",
+  "email": "john@gmail.com",
+  "password": "12345",
+  "role": "admin",
+  "status": 1
+  },
+  {
+  "fullname": "Aron Finch",
+  "email": "aron@gmail.com",
+  "password": "12345",
+  "role": "admin",
+  "status": 0
+  },
+  {
+  "fullname": "Steve Smith",
+  "email": "steve@gmail.com",
+  "password": "12345",
+  "role": "employee",
+  "status": 1
+  },
+  {
+  "fullname": "Mike Clerk",
+  "email": "mike@gmail.com",
+  "password": "12345",
+  "role": "employee",
+  "status": 1
+  },
+  {
+  "fullname": "Nike Adison",
+  "email": "nike@gmail.com",
+  "password": "12345",
+  "role": "employee",
+  "status": 0
+  }
+]

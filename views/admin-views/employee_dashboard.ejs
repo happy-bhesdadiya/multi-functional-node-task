@@ -1,0 +1,106 @@
+<%- include('includes/header') %>
+<%- include('includes/sidebar') %>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+  <div class="content-overlay"></div>
+  <div class="header-navbar-shadow"></div>
+  <div class="content-wrapper">
+    <div class="content-header row">
+    </div>
+    <div class="content-body">
+      <!-- Dashboard Ecommerce Starts -->
+      <section id="dashboard-ecommerce">
+        <div class="row match-height">
+          <!-- Medal Card -->
+          <div class="col-xl-4 col-md-6 col-12">
+            <div class="card card-congratulation-medal">
+              <div class="card-body">
+                <h5 style="font-size: 20px;"><%= greetings %> <br><br> <%= user_name %></h5>
+                
+                <img style="margin-right: -30px;" src="/assets/app-assets/images/illustration/badge.svg" class="congratulation-medal"
+                  alt="Medal Pic" />
+              </div>
+            </div>
+          </div>
+          <!--/ Medal Card -->
+
+          <!-- Statistics Card -->
+          <div class="col-xl-8 col-md-6 col-12">
+            <div class="card card-statistics">
+              <div class="card-header">
+                <h4 class="card-title">Statistics</h4>
+                <div class="d-flex align-items-center">
+                  <p class="card-text font-small-2 mr-25 mb-0">Updated 1 month ago</p>
+                </div>
+              </div>
+              <div class="card-body statistics-body">
+                <div class="row">
+                  <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                    <div class="media">
+                      <div class="avatar bg-light-primary mr-2">
+                        <div class="avatar-content">
+                          <i data-feather="trending-up" class="avatar-icon"></i>
+                        </div>
+                      </div>
+                      <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">3</h4>
+                        <p class="card-text font-small-3 mb-0">Projects</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-xl-0">
+                    <div class="media">
+                      <div class="avatar bg-light-info mr-2">
+                        <div class="avatar-content">
+                          <i data-feather="user" class="avatar-icon"></i>
+                        </div>
+                      </div>
+                      <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">8</h4>
+                        <p class="card-text font-small-3 mb-0">Points</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12 mb-2 mb-sm-0">
+                    <div class="media">
+                      <div class="avatar bg-light-danger mr-2">
+                        <div class="avatar-content">
+                          <i data-feather="box" class="avatar-icon"></i>
+                        </div>
+                      </div>
+                      <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">2</h4>
+                        <p class="card-text font-small-3 mb-0">Experience</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="media">
+                      <div class="avatar bg-light-success mr-2">
+                        <div class="avatar-content">
+                          <i data-feather="dollar-sign" class="avatar-icon"></i>
+                        </div>
+                      </div>
+                      <div class="media-body my-auto">
+                        <h4 class="font-weight-bolder mb-0">$9745</h4>
+                        <p class="card-text font-small-3 mb-0">Earning</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--/ Statistics Card -->
+        </div>
+
+      </section>
+      <!-- Dashboard Ecommerce ends -->
+
+    </div>
+  </div>
+</div>
+<!-- END: Content-->
+
+<%- include('includes/footer') %>
